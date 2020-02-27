@@ -33,10 +33,10 @@ public class Application {
 		 */
 		
 		List<Product> newProductList = productList.stream()
-				.filter(isHealth::test)  // intermediate
+				.filter(isHealth::test)  // intermediate. Записывает в поток только то, что соотвествует какому-то условию
 				.filter(isSecondHand::test)  // intermediate
-				.map(valueAddedTax::calculate)  // intermediate
-				.collect(Collectors.toList());  // terminal
+				.map(valueAddedTax::calculate)  // intermediate.  Выполняет какие-то операции, изменяя каждый элемент
+				.collect(Collectors.toList());  // terminal. Преобразуем поток в List
 
 		newProductList.stream().forEach(printer::consume);
 
